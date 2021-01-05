@@ -7,7 +7,7 @@ def main():
     num_tracks = 0
     while True:
         try:
-            num_tracks = int(input("How many tracks would you like to visualize: "))
+            num_tracks = int(input("How many recent tracks would you like to see: "))
             break
         except ValueError:
             continue
