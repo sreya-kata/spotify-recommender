@@ -48,7 +48,11 @@ class Spotify:
     
     def fill_playlist(self, playlist, tracks):
         # Populates the given playlist with the given tracks using a POST request
-        track_urls = [track.create_spotify_uri() for track in tracks]
+        track_urls = []
+        for track in tracks:
+        	if track.create_spotify_uri() not in track_urls:
+        		track_urls.append(track.create_spotify_uri()) 
+
         data = json.dumps(track_urls)
         url = f"https://api.spotify.com/v1/playlists/{playlist.id}/tracks"
         response = self.post_api_request(url, data)
